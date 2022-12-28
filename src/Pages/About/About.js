@@ -2,9 +2,11 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
-            about me
-        </div>
+        <section className='bg-[#F5F8FA] py-8'>
+            <div className="container mx-auto">
+
+            </div>
+        </section>
     );
 };
 

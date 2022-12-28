@@ -1,13 +1,17 @@
 import React from 'react';
 import CreatePost from '../../Components/CreatePost/CreatePost';
+import LeatestPost from '../../Components/LeatestPost/LeatestPost';
 
 const Home = () => {
     return (
-        <section className='bg-[#F5F8FA]'>
+        <section className='bg-[#F5F8FA] py-8'>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div className="col-span-2">
                         <CreatePost />
+                        <LeatestPost />
+                        <LeatestPost />
+                        <LeatestPost />
                     </div>
                     <div>
                         <div className="flex flex-col justify-center max-w-xs p-6  rounded border border-[#eee] sm:px-12 text-gray-900 bg-base-100">

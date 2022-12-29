@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
     return (
-        <div className="navbar bg-[#3097D1] text-base-100">
+        <div className="navbar bg-[#3097D1] text-base-100 sticky top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,8 +28,13 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/login'>Login</Link></li>
-                    <li><Link to='/signup'>Sign Up</Link></li>
+                    {user?.uid ?
+                        <li><button onClick={logOut} type='button' className='btn btn-ghost'>Logout</button></li> :
+                        <>
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><Link to='/signup'>Sign Up</Link></li>
+                        </>
+                    }
                 </ul>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">

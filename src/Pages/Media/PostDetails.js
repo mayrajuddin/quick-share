@@ -18,7 +18,7 @@ const PostDetails = () => {
                     <div className='flex flex-col  border'>
                         <div className="flex justify-between items-center p-4">
                             <div className='flex items-center'>
-                                <img src={userImg} alt="" className="w-16 h-16  mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+                                <img src={userImg} alt="" className="w-16 h-16  mx-auto rounded-full  aspect-square" />
                                 <div className='ml-3'>
                                     <p className='font-semibold capitalize'>{userName}</p>
                                     <p>time</p>

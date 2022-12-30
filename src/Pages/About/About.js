@@ -6,15 +6,15 @@ import AboutModal from './AboutModal';
 
 const About = () => {
     const { user } = useContext(AuthContext)
-    const url = `${process.env.REACT_APP_API_URI}/users?email=${user?.email}`;
-    const { data: userInfo, isLoading } = useQuery({
-        queryKey: ['userInformation', user?.email],
-        queryFn: async () => {
+    const url = `${process.env.REACT_APP_API_URI}/users?email=${user?.email}`
+    const { data: userInfo, isLoading } = useQuery(
+        ['userInformation', user?.email],
+        async () => {
             const res = await fetch(url)
             const data = await res.json()
             return data
         }
-    })
+    )
     console.log(userInfo);
     if (isLoading) {
         return <div>loading...</div>

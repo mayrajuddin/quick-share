@@ -1,11 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import CreatePost from '../../Components/CreatePost/CreatePost';
 import LeatestPost from '../../Components/LeatestPost/LeatestPost';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Home = () => {
-    const { user, loading } = useContext(AuthContext)
-    if (loading) {
+    const { user } = useContext(AuthContext)
+    const url = `${process.env.REACT_APP_API_URI}/posts?limit=3`
+    const { data: posts, isLoading } = useQuery(
+        ['posts'],
+        async () => {
+            const res = await fetch(url)
+            const data = await res.json()
+            return data
+        }
+    )
+    console.log(posts);
+    if (isLoading) {
         return <div> loading...</div>
     }
     return (
@@ -14,9 +25,9 @@ const Home = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div className="col-span-2">
                         {user?.uid && <CreatePost />}
-                        <LeatestPost />
-                        <LeatestPost />
-                        <LeatestPost />
+                        {
+                            posts.map(post => <LeatestPost key={post._id} post={post} />)
+                        }
                     </div>
                     <div>
                         {user?.uid &&

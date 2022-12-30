@@ -25,11 +25,11 @@ const Post = ({ post }) => {
                 </div>
                 <div className='flex justify-between items-center border-t py-2 px-4'>
                     <div className=''>
-                        <FaRegThumbsUp size={24} className='inline mr-2' />
-                        <FaHeart size={24} className='inline' />
+                        <button type='button'><FaRegThumbsUp size={24} className='inline mr-2' /></button>
+                        <button type='button'><FaHeart size={24} className='inline' /></button>
                     </div>
                     <div>
-                        <FaComments size={24} />
+                        <button type='button'><FaComments size={24} /></button>
                     </div>
                     <div>
                         <Link to={`/media/${_id}`} type='button' className='btn btn-sm bg-[#3097D1] border-0'>Details</Link>

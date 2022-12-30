@@ -2,6 +2,7 @@ import React from 'react';
 import { FaComments, FaHeart, FaRegThumbsUp } from 'react-icons/fa';
 
 const LeatestPost = () => {
+
     return (
         <section className='bg-base-100 text-gray-900 border border-[#eee] p-4 border-t-0'>
             <div className='flex flex-col  border'>

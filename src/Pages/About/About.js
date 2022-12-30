@@ -1,8 +1,24 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
 import { BsPencilSquare } from "react-icons/bs";
+import { AuthContext } from '../../Context/AuthProvider';
 import AboutModal from './AboutModal';
 
 const About = () => {
+    const { user } = useContext(AuthContext)
+    const url = `${process.env.REACT_APP_API_URI}/users?email=${user?.email}`;
+    const { data: userInfo, isLoading } = useQuery({
+        queryKey: ['userInformation', user?.email],
+        queryFn: async () => {
+            const res = await fetch(url)
+            const data = await res.json()
+            return data
+        }
+    })
+    console.log(userInfo);
+    if (isLoading) {
+        return <div>loading...</div>
+    }
     return (
         <section className='bg-[#F5F8FA] py-8'>
             <div className="container mx-auto h-screen ">

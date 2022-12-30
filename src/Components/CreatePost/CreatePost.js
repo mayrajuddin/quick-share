@@ -22,9 +22,8 @@ const CreatePost = () => {
         }).then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
-                    console.log(imgData.data.url)
                     const post = {
-                        text, imgURL: imgData.data.url, userName: user.displayName, email: user.email
+                        text, imgURL: imgData.data.url, userName: user.displayName, email: user.email, userImg: user.photoURL,
                     }
                     //save posts to db
                     fetch(`${process.env.REACT_APP_API_URI}/posts`, {

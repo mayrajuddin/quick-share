@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHeart, FaRegThumbsUp } from 'react-icons/fa';
+import { FaComments, FaHeart, FaRegThumbsUp } from 'react-icons/fa';
 
 const LeatestPost = () => {
     return (
@@ -25,6 +25,9 @@ const LeatestPost = () => {
                     <div className=''>
                         <FaRegThumbsUp size={24} className='inline mr-2' />
                         <FaHeart size={24} className='inline' />
+                    </div>
+                    <div>
+                        <FaComments size={24} />
                     </div>
                     <div>
                         <button type='button' className='btn btn-sm bg-[#3097D1] border-0'>Details</button>

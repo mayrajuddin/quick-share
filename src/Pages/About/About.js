@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsPencilSquare } from "react-icons/bs";
+import AboutModal from './AboutModal';
 
 const About = () => {
     return (
@@ -10,29 +11,30 @@ const About = () => {
                         <div className='font-serif flex flex-col space-y-2 relative'>
                             <label>
                                 <span className="label-text">Name</span>
-                                <h4 className='text-lg font-semibold capitalize'>mayraj uddin</h4>
+                                <h4 className='text-lg  capitalize'>mayraj uddin</h4>
                             </label>
                             <label>
                                 <span className="label-text">Email</span>
-                                <p className='text-lg'>mayrajuddin03@gmail.com</p>
+                                <p className='text-lg '>mayrajuddin03@gmail.com</p>
                             </label>
                             <label>
                                 <span className="label-text">Collage/University</span>
-                                <p className='text-lg capitalize'>shayamoli ideal polytechnic institute</p>
+                                <p className='text-lg  capitalize'>shayamoli ideal polytechnic institute</p>
                             </label>
                             <label>
                                 <span className="label-text">Address</span>
-                                <p className='text-lg capitalize'>Mirsarai, Chittagong bangladesh</p>
+                                <p className='text-lg  capitalize'>Mirsarai, Chittagong bangladesh</p>
                             </label>
-                            <span className='absolute right-0'>
-                                <button type='button'>
+                            <span className='absolute right-0 -top-5'>
+                                <label htmlFor="about-modal" className="btn p-0 m-0 bg-transparent text-gray-800 border-0 hover:bg-transparent">
                                     <BsPencilSquare size={18} />
-                                </button>
+                                </label>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
+            <AboutModal />
         </section>
     );
 };

@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
-    const { createUser, loading } = useContext(AuthContext)
+    const { createUser, loading, updateUser } = useContext(AuthContext)
     const [er, setEr] = useState(null)
     const navigate = useNavigate()
 
@@ -18,11 +18,39 @@ const SignUp = () => {
     const handleRegister = data => {
         createUser(data.email, data.password)
             .then(result => {
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                saveUser(data.email, data.name)
                 reset()
                 navigate('/')
+                console.log(result);
             })
             .catch(er => {
                 setEr(er.message)
+            })
+    }
+
+    const saveUser = (email, name) => {
+        const user = { email, name }
+
+        fetch(`${process.env.REACT_APP_API_URI}/users`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+
             })
     }
     return (
